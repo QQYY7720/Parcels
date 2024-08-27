@@ -121,7 +121,7 @@ class ParticleFile:
                         f"The ParticleFile name contains .zarr extension, but zarr files will be written per processor in MPI mode at {self.fname}"
                     )
             else:
-                self.fname = name if extension in [".zarr"] else "%s.zarr" % name
+                self.fname = name if extension in [".zarr"] else f"{name}.zarr"
 
     def _create_variables_attribute_dict(self):
         """Creates the dictionary with variable attributes.
@@ -209,7 +209,7 @@ class ParticleFile:
         time = time.total_seconds() if isinstance(time, timedelta) else time
 
         if pset.particledata._ncount == 0:
-            logger.warning("ParticleSet is empty on writing as array at time %g" % time)
+            logger.warning(f"ParticleSet is empty on writing as array at time {time:g}")
             return
 
         if indices is None:
