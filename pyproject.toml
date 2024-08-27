@@ -66,7 +66,7 @@ select = [
     "F",  # pyflakes
     "I",  # isort
     "B",  # Bugbear
-    # "UP", # pyupgrade
+    "UP", # pyupgrade
     "LOG", # logging
     "ICN", # import conventions
     "G", # logging-format
